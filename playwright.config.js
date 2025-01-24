@@ -27,7 +27,7 @@ export default defineConfig({
     command: "npm run start", // Start your app server for E2E tests
     port: 3000, // Ensure the port matches your app's local server
     timeout: 120000,            // Wait for the server to start
-    reuseExistingServer: !process.env.CI, // Prevent server restarts locally
+    reuseExistingServer: true, // Prevent server restarts locally
   },
 
   projects: [
