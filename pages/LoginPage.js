@@ -13,7 +13,9 @@ class LoginPage {
     this.loginEmail = page.locator("[data-qa='login-email']");
     this.loginPassword = page.getByPlaceholder("Password");
     this.loginBtn = page.getByRole("button", { name: "Login" });
-    this.invalidLoginErrorMsg = page.getByText("Your email or password is incorrect!")
+    this.invalidLoginErrorMsg = page.getByText(
+      "Your email or password is incorrect!"
+    );
   }
 
   async signUpHeaderTest() {
@@ -54,20 +56,25 @@ class LoginPage {
     await this.signUpBtn.click();
   }
 
-  async clickLoginBtn()
-  {
+  async clickLoginBtn() {
     await this.loginBtn.waitFor({ state: "visible" });
     await this.loginBtn.click();
   }
 
-  async verifyLoginError(){
-    await this.invalidLoginErrorMsg.waitFor({state:"visible"})
+  async verifyLoginError() {
+    await this.invalidLoginErrorMsg.waitFor({ state: "visible" });
     expect(await this.invalidLoginErrorMsg).toContainText("incorrect!");
   }
 
   async verifyLoggedInUsername(name) {
     await this.loggedinUsernametext.waitFor({ state: "visible" });
     expect(await this.loggedinUsernametext).toContainText(name).toBeTruthy;
+  }
+
+  async verifyLoginPage() {
+    const currentUrl = await this.page.url();
+    console.log(currentUrl);
+    expect(currentUrl).toBe("https://automationexercise.com/login");
   }
 }
 

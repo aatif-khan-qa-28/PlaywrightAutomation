@@ -12,15 +12,14 @@ export default defineConfig({
 
   retries: process.env.CI ? 2 : 0, // Retry failed tests 2 times in CI
   workers: process.env.CI ? 4 : undefined, // Use 4 workers in CI, default locally
-
   reporter: process.env.CI ? "github" : "list",
 
-  timeout: 30 * 1000,
+  timeout: 30000,
   outputDir: "test-results/",
 
   expect: {
     // wait for assertions etx.
-    timeout: 5000,
+    timeout: 10000,
   },
 
   webServer: {
@@ -34,16 +33,19 @@ export default defineConfig({
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
+      fullyParallel: true,
     },
 
-    // {
-    //   name: "firefox",
-    //   use: { ...devices["Desktop Firefox"] },
-    // },
+    {
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"] },
+      fullyParallel: true,
+    },
 
-    // {
-    //   name: "webkit",
-    //   use: { ...devices["Desktop Safari"] },
-    // },
+    {
+      name: "webkit",
+      use: { ...devices["Desktop Safari"] },
+      fullyParallel: true,
+    },
   ],
 });

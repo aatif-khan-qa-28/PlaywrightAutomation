@@ -58,6 +58,4 @@ test("Test case 1 : Register User", async ({ page }) => {
 
   await deleteAccountpage.verifydeletePageHeader();
   await deleteAccountpage.clickContinueBtn();
-
-  page.pause();
 });
