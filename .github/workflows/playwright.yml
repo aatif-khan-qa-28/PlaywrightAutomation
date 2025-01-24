@@ -27,6 +27,10 @@ jobs:
         run: |
           npm install
 
+      - name: Install Playwright browsers
+        run: |
+          npx playwright install
+
       - name: Start the mock server
         run: |
           nohup node server.js &
