@@ -9,12 +9,12 @@ class DeletePage{
     }
 
     async verifydeletePageHeader() {
-        await this.deletePageHeader.waitFor({ state: "visible" });
+        await this.deletePageHeader.waitFor();
         expect(await this.deletePageHeader).toBeVisible();
       }
 
       async clickContinueBtn() {
-        await this.continueBtn.waitFor({ state: "visible" });
+        await this.continueBtn.waitFor();
         await this.continueBtn.click();
       }
 }

@@ -35,7 +35,7 @@ class SignupPage {
   }
 
   async accountInfoHeader() {
-    await this.signUpPageHeader.waitFor({ state: "visible" });
+    await this.signUpPageHeader.waitFor();
     expect(await this.signUpPageHeader).toBeVisible();
   }
 
@@ -61,109 +61,91 @@ class SignupPage {
   }
 
   async selectDOB(day, month, year){
-    await this.dayDate.waitFor({ state: "visible" });
+    await this.dayDate.waitFor();
     await expect(this.dayDate).toBeVisible();
     await this.dayDate.selectOption(day);
 
-    await this.monthDate.waitFor({ state: "visible" });
+    await this.monthDate.waitFor();
     await expect(this.monthDate).toBeVisible();
     await this.monthDate.selectOption(month);
 
-    await this.yearDate.waitFor({ state: "visible" });
+    await this.yearDate.waitFor();
     await expect(this.yearDate).toBeVisible();
     await this.yearDate.selectOption(year);
 
   }
 
-//   async selectDay(day) {
-//     await this.dayDate.waitFor({ state: "visible" });
-//     await expect(this.dayDate).toBeVisible();
-//     await this.dayDate.selectOption(day);
-//   }
-
-//   async selectMonth(month) {
-//     await this.monthDate.waitFor({ state: "visible" });
-//     await expect(this.monthDate).toBeVisible();
-//     await this.monthDate.selectOption(month);
-//   }
-
-//   async selectYear(year) {
-//     await this.yearDate.waitFor({ state: "visible" });
-//     await expect(this.yearDate).toBeVisible();
-//     await this.yearDate.selectOption(year);
-//   }
-
   async checkNewsLetter() {
-    await this.newsletterCheckbox.waitFor({ state: "visible" });
+    await this.newsletterCheckbox.waitFor();
     await expect(this.newsletterCheckbox).toBeVisible();
     await this.newsletterCheckbox.check();
   }
 
   async checkOffers() {
-    await this.offersCheckBox.waitFor({ state: "visible" });
+    await this.offersCheckBox.waitFor();
     await expect(this.offersCheckBox).toBeVisible();
     await this.offersCheckBox.check();
   }
 
   async enterFirstName(firstName) {
-    await this.firstName.waitFor({ state: "visible" });
+    await this.firstName.waitFor();
     await expect(this.firstName).toBeVisible();
     await this.firstName.fill(firstName);
   }
 
   async enterLastName(lastName) {
-    await this.lastName.waitFor({ state: "visible" });
+    await this.lastName.waitFor();
     await expect(this.lastName).toBeVisible();
     await this.lastName.fill(lastName);
   }
   async enterCompanyName(company) {
-    await this.company.waitFor({ state: "visible" });
+    await this.company.waitFor();
     await expect(this.company).toBeVisible();
     await this.company.fill(company);
   }
 
   async enterAdressOne(address1) {
-    await this.addressOne.waitFor({ state: "visible" });
+    await this.addressOne.waitFor();
     await expect(this.addressOne).toBeVisible();
     await this.addressOne.fill(address1);
   }
   
   async enterAdressTwo(address2) {
-    await this.addressTwo.waitFor({ state: "visible" });
+    await this.addressTwo.waitFor();
     await expect(this.addressTwo).toBeVisible();
     await this.addressTwo.fill(address2);
   }
 
   async selectCountry(country) {
-    await this.countryDropdown.waitFor({ state: "visible" });
+    await this.countryDropdown.waitFor();
     await expect(this.countryDropdown).toBeVisible();
     await this.countryDropdown.selectOption(country);
   }
 
   async enterState(state) {
-    await this.state.waitFor({ state: "visible" });
+    await this.state.waitFor();
     await expect(this.state).toBeVisible();
     await this.state.fill(state);
   }
   async enterCity(city) {
-    await this.city.waitFor({ state: "visible" });
+    await this.city.waitFor();
     await expect(this.city).toBeVisible();
     await this.city.fill(city);
   }
   async enterZipcode(zipCode) {
-    await this.zipcode.waitFor({ state: "visible" });
+    await this.zipcode.waitFor();
     await expect(this.zipcode).toBeVisible();
     await this.zipcode.fill(zipCode);
   }
 
   async enterMobileNumber(mobileNumber) {
-    await this.mobileNumber.waitFor({ state: "visible" });
+    await this.mobileNumber.waitFor();
     await expect(this.mobileNumber).toBeVisible();
     await this.mobileNumber.fill(mobileNumber);
   }
 
   async clickOnCreateAccount() {
-    await this.createAccountButton.waitFor({ state: "visible" });
+    await this.createAccountButton.waitFor();
     await expect(this.createAccountButton).toBeVisible();
     await this.createAccountButton.click();
   }

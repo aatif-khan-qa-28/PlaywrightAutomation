@@ -8,12 +8,12 @@ class AccountCreatedPage {
   }
 
   async verifyAccountCreateHeader() {
-    await this.accountPageHeader.waitFor({ state: "visible" });
+    await this.accountPageHeader.waitFor();
     expect(await this.accountPageHeader).toBeVisible();
   }
 
   async clickContinueBtn() {
-    await this.continueBtn.waitFor({ state: "visible" });
+    await this.continueBtn.waitFor();
     await this.continueBtn.click();
   }
 }

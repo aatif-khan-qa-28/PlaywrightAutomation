@@ -19,55 +19,55 @@ class LoginPage {
   }
 
   async signUpHeaderTest() {
-    await this.newUserHeader.waitFor({ state: "visible" });
+    await this.newUserHeader.waitFor();
     expect(await this.newUserHeader).toBeVisible();
   }
 
   async loginAsExistingUserHeaderText() {
-    await this.existingUserHeader.waitFor({ state: "visible" });
+    await this.existingUserHeader.waitFor();
     expect(await this.existingUserHeader).toBeVisible();
   }
   async enterSignUpName(name) {
-    await this.signUpName.waitFor({ state: "visible" });
+    await this.signUpName.waitFor();
     expect(this.signUpName).toBeVisible();
     await this.signUpName.fill(name);
   }
 
   async enterLoginEmail(email) {
-    await this.loginEmail.waitFor({ state: "visible" });
+    await this.loginEmail.waitFor();
     expect(await this.loginEmail).toBeVisible();
     await this.loginEmail.fill(email);
   }
 
   async enterLoginPswd(password) {
-    await this.loginPassword.waitFor({ state: "visible" });
+    await this.loginPassword.waitFor();
     expect(await this.loginPassword).toBeVisible();
     await this.loginPassword.fill(password);
   }
 
   async enterSignupEmail(email) {
-    await this.signUpEmail.waitFor({ state: "visible" });
+    await this.signUpEmail.waitFor();
     expect(this.signUpEmail).toBeVisible();
     await this.signUpEmail.fill(email);
   }
 
   async clickSignUpBtn() {
-    await this.signUpBtn.waitFor({ state: "visible" });
+    await this.signUpBtn.waitFor();
     await this.signUpBtn.click();
   }
 
   async clickLoginBtn() {
-    await this.loginBtn.waitFor({ state: "visible" });
+    await this.loginBtn.waitFor();
     await this.loginBtn.click();
   }
 
   async verifyLoginError() {
-    await this.invalidLoginErrorMsg.waitFor({ state: "visible" });
+    await this.invalidLoginErrorMsg.waitFor();
     expect(await this.invalidLoginErrorMsg).toContainText("incorrect!");
   }
 
   async verifyLoggedInUsername(name) {
-    await this.loggedinUsernametext.waitFor({ state: "visible" });
+    await this.loggedinUsernametext.waitFor();
     expect(await this.loggedinUsernametext).toContainText(name).toBeTruthy;
   }
 

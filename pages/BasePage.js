@@ -12,30 +12,30 @@ class BasePage {
   }
 
   async clickOnsignUpLogin() {
-    await this.signUpLogin.waitFor({ state: "visible" });
+    await this.signUpLogin.waitFor();
     await expect(this.signUpLogin).toBeVisible();
     await this.signUpLogin.click();
   }
 
   async clickOnDeleteAccount() {
-    await this.deleteAccount.waitFor({ state: "visible" });
+    await this.deleteAccount.waitFor();
     await expect(this.deleteAccount).toBeVisible();
     await this.deleteAccount.click();
   }
 
   async clickOnLogout() {
-    await this.logout.waitFor({ state: "visible" });
+    await this.logout.waitFor();
     await expect(this.logout).toBeVisible();
     await this.logout.click();
   }
 
   async clickOnContactUs() {
-    await this.contactUs.waitFor({ state: "visible" });
+    await this.contactUs.waitFor();
     await expect(this.contactUs).toBeVisible();
     await this.contactUs.click();
   }
   async clickOnTestCases() {
-    await this.testCases.waitFor({ state: "visible" });
+    await this.testCases.waitFor();
     await expect(this.testCases).toBeVisible();
     await this.testCases.click();
   }
