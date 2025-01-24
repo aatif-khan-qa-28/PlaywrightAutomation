@@ -17,33 +17,33 @@ export default defineConfig({
   // globalSetup: require.resolve("./global-setup"),
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.BASE_URL || "http://automationexercise.com/",
-    browserName: "chromium",
-    headless: false,
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    baseURL: "http://automationexercise.com/",
+    headless: true,
+    screenshot: "only-on-failure",
     trace: "retain-on-failure",
   },
 
   /* Run tests in files in parallel */
   fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
-  forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
 
-  reporter: "html",
+  retries: process.env.CI ? 2 : 0, // Retry failed tests 2 times in CI
+  workers: process.env.CI ? 4 : undefined, // Use 4 workers in CI, default locally
+
+  reporter: process.env.CI ? "github" : "list",
 
   timeout: 30 * 1000,
+  outputDir: "test-results/",
 
   expect: {
     // wait for assertions etx.
     timeout: 5000,
   },
 
+  webServer: {
+    command: "npm run start", // Start your app server for E2E tests
+    port: 3000, // Ensure the port matches your app's local server
+    reuseExistingServer: !process.env.CI, // Prevent server restarts locally
+  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 
   /* Configure projects for major browsers */
