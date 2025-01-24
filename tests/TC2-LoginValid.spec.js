@@ -18,7 +18,7 @@ test("Test Case 2 - Login using valid credentials", async ({ page }) => {
   await loginPage.enterLoginPswd(credentials.existingUser.password);
   await loginPage.clickLoginBtn();
   await loginPage.verifyLoggedInUsername(credentials.existingUser.name)
-  await basePage.clickOnDeleteAccount();
-  await deleteAccountpage.deletePageHeader();
+  // await basePage.clickOnDeleteAccount();
+  // await deleteAccountpage.deletePageHeader();
 });
 

@@ -6,7 +6,7 @@ setupBeforeEach();
 const credentials = JSON.parse(
   JSON.stringify(require("./test-data/credentials.json"))
 );
-test.only("Test Case 3 - Login using invalid credentials", async ({ page }) => {
+test("Test Case 3 - Login using invalid credentials", async ({ page }) => {
   const poManager = new POManager(page);
   const basePage = poManager.getBasePage();
   const loginPage = poManager.getLoginPage();
