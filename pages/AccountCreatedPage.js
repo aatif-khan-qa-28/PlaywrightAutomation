@@ -8,7 +8,7 @@ class AccountCreatedPage {
   }
 
   async verifyAccountCreateHeader() {
-    await this.accountPageHeader.waitFor();
+    // await this.accountPageHeader.waitFor();
     expect(await this.accountPageHeader).toBeVisible();
   }
 

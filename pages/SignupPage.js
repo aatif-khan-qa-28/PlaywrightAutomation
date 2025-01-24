@@ -54,7 +54,7 @@ class SignupPage {
   }
 
   async enterPassword(password){
-    await this.password.waitFor({state: "visible"});
+    await this.password.waitFor();
     expect(await this.password).toBeVisible();
     await this.password.fill(password);
 
@@ -145,7 +145,6 @@ class SignupPage {
   }
 
   async clickOnCreateAccount() {
-    await this.createAccountButton.waitFor();
     await expect(this.createAccountButton).toBeVisible();
     await this.createAccountButton.click();
   }

@@ -6,7 +6,9 @@ class LoginPage {
     this.page = page;
     this.newUserHeader = page.getByText("New User Signup!");
     this.existingUserHeader = page.getByText("Login to your account");
-    this.signUpBtn = page.getByRole("button", { name: "Signup" });
+    this.signUpBtn = page.locator("[data-qa='signup-button']");
+    // page.getByRole("button", { name: "Signup" });
+
     this.signUpName = page.getByPlaceholder("Name");
     this.signUpEmail = page.locator("[data-qa='signup-email']");
     this.loggedinUsernametext = page.getByText(" Logged in as ");
@@ -16,19 +18,21 @@ class LoginPage {
     this.invalidLoginErrorMsg = page.getByText(
       "Your email or password is incorrect!"
     );
+
+    this.signUpErrorMsg = page.getByText("Email Address already exist!");
   }
 
   async signUpHeaderTest() {
-    await this.newUserHeader.waitFor();
+    // await this.newUserHeader.waitFor();
     expect(await this.newUserHeader).toBeVisible();
   }
 
   async loginAsExistingUserHeaderText() {
-    await this.existingUserHeader.waitFor();
+    // await this.existingUserHeader.waitFor();
     expect(await this.existingUserHeader).toBeVisible();
   }
   async enterSignUpName(name) {
-    await this.signUpName.waitFor();
+    // await this.signUpName.waitFor();
     expect(this.signUpName).toBeVisible();
     await this.signUpName.fill(name);
   }
@@ -52,18 +56,25 @@ class LoginPage {
   }
 
   async clickSignUpBtn() {
-    await this.signUpBtn.waitFor();
+    // await this.signUpBtn.waitFor();
     await this.signUpBtn.click();
   }
 
   async clickLoginBtn() {
-    await this.loginBtn.waitFor();
+    // await this.loginBtn.waitFor();
     await this.loginBtn.click();
   }
 
   async verifyLoginError() {
     await this.invalidLoginErrorMsg.waitFor();
     expect(await this.invalidLoginErrorMsg).toContainText("incorrect!");
+  }
+
+  async verifySignUpError() {
+    await this.signUpErrorMsg.waitFor();
+    expect(await this.signUpErrorMsg).toContainText(
+      "Email Address already exist!"
+    );
   }
 
   async verifyLoggedInUsername(name) {

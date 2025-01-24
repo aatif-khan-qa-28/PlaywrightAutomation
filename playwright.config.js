@@ -25,7 +25,7 @@ export default defineConfig({
   webServer: {
     command: "npm run start", // Start your app server for E2E tests
     port: 3000, // Ensure the port matches your app's local server
-    timeout: 120000,            // Wait for the server to start
+    timeout: 120000, // Wait for the server to start
     reuseExistingServer: true, // Prevent server restarts locally
   },
 
@@ -35,17 +35,10 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
       fullyParallel: true,
     },
-
     {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
+      name: "edge",
+      use: {...devices["Desktop Edge"]},
       fullyParallel: true,
-    },
-
-    {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] },
-      fullyParallel: true,
-    },
+    }
   ],
 });

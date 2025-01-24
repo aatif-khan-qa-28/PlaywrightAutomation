@@ -1,17 +1,17 @@
 const { AccountCreatedPage } = require("./AccountCreatedPage");
 const { LoginPage } = require("./LoginPage");
-const { BasePage } = require("./BasePage");
 const { SignupPage } = require("./SignupPage");
 const { DeletePage } = require("./DeletePage");
+const { BasePage } = require("./BasePage");
 
 class POManager {
   constructor(page) {
     this.page = page;
     this.loginPage = new LoginPage(page);
     this.accountCreatePage = new AccountCreatedPage(page);
-    this.basePage = new BasePage(page);
     this.signUpPage = new SignupPage(page);
     this.deletePage = new DeletePage(page);
+    this.basePage = new BasePage(page);
   }
   getDeletePage() {
     return this.deletePage;

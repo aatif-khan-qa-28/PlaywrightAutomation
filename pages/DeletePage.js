@@ -14,7 +14,7 @@ class DeletePage{
       }
 
       async clickContinueBtn() {
-        await this.continueBtn.waitFor();
+        // await this.continueBtn.waitFor();
         await this.continueBtn.click();
       }
 }
