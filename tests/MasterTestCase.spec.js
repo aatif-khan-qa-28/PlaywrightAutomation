@@ -61,8 +61,6 @@ test("Test case 1 : Register User", async ({ page }) => {
 
   await deleteAccountpage.verifydeletePageHeader();
   await deleteAccountpage.clickContinueBtn();
-
-  page.pause();
 });
 
 test("Test Case 2 - Login using valid credentials", async ({ page }) => {

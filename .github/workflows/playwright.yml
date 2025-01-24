@@ -1,4 +1,6 @@
-name: Playwright Tests
+# .github/workflows/playwright.yml
+
+name: Playwright UI Automation Tests
 
 on:
   push:
@@ -11,23 +13,30 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        shard: [1/2, 2/2] # Shard tests into 2 groups
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: '16'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+      - name: Start the mock server
+        run: |
+          nohup node server.js &
+        continue-on-error: true
 
-      - name: Run Playwright Tests
-        run: npx playwright test --shard=${{ matrix.shard }}
+      - name: Run Playwright tests
+        run: npm test
+
+      - name: Upload Playwright test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: playwright-test-results
+          path: test-results
