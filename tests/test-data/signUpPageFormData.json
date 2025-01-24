@@ -1,0 +1,16 @@
+{
+  
+  "firstName": "Test",
+  "lastName": "Aatif",
+  "day": "28",
+  "month": "7",
+  "year": "1999",
+  "company": "Test Company Pvt Ltd",
+  "address1": "Example St. 123",
+  "address2": "pune",
+  "country": "India",
+  "state": "Maharashtra",
+  "city": "PUNE",
+  "zipcode": "123456",
+  "mobileNumber": "7878787"
+}
